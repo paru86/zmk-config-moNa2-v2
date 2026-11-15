@@ -239,80 +239,74 @@
     keymap {
         compatible = "zmk,keymap";
 
-        win_layer {
-            display-name = "WIN";
+        default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R        &kp T                                      &kp Y          &kp U  &kp I      &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F        &kp G                       &kp MINUS      &kp H          &kp J  &kp K      &kp L    &lt 2 SEMICOLON
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V        &kp B        &kp COLON      &kp SEMICOLON  &kp N          &kp M  &kp COMMA  &kp DOT  &lt 5 SLASH
-&kp RCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 GRAVE  &lt 2 SPACE  &lt 3 MINUS    &kp ENTER      &kp BACKSPACE                             &kp RIGHT_SHIFT
+&kp TAB           &kp W         &kp E         &kp R                        &kp T                                           &kp Y          &kp U  &kp I      &kp O    &lt 2 P
+&mt LCTRL A       &kp S         &kp D         &kp F                        &kp G                            &kp SQT        &kp H          &kp J  &kp K      &kp L    &kp MINUS
+&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                        &kp B             &kp EQUAL      &kp SEMICOLON  &kp N          &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
+&lt 6 Q           &kp LEFT_WIN  &kp LEFT_ALT  &mt LEFT_CONTROL LANGUAGE_2  &lt 5 LANGUAGE_1  &lt 4 SPACE    &lt 3 ENTER    &kp BACKSPACE                             &kp DEL
             >;
 
             sensor-bindings = <&rsr_default>, <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
-        num_win {
-            display-name = "NUM_W";
+        mouse_1 {
             bindings = <
-&kp ESCAPE  &kp EXCLAMATION       &kp AT_SIGN            &kp HASH          &kp DOLLAR                                &kp EQUAL      &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp ASTERISK
-&kp TAB     &kp PERCENT           &kp CARET              &kp AMPERSAND     &kp ASTERISK                 &kp PERCENT  &kp NUMBER_0   &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
-&kp PIPE    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans    &kp PLUS     &kp DOT        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp SLASH
-&kp LCTRL   &kp LEFT_GUI          &kp LEFT_ALT           &trans            &trans             &trans    &kp ENTER    &kp BACKSPACE                                            &kp RIGHT_SHIFT
-            >;
-
-            sensor-bindings = <&rsr_default>;
-        };
-
-        mouse_win {
-            display-name = "MOUSE_W";
-            bindings = <
-&kp ESCAPE                  &kp LC(Z)       &kp UP_ARROW    &kp LC(Y)        &kp LC(V)                                  &kp CARET         &kp AMPERSAND      &mkp MB3        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp TAB                     &kp LEFT_ARROW  &screenshot     &kp RIGHT_ARROW  &kp ASTERISK               &kp UNDERSCORE  &kp EXCLAMATION   &mkp MB1           &mo 3           &mkp MB2              &henkan
-&mt LEFT_SHIFT KP_NUMBER_0  &kp LC(Y)       &kp DOWN_ARROW  &kp END          &kp HOME      &kp EQUAL    &trans          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE       &kp LC(SPACE)
-&kp LCTRL                   &trans          &trans          &trans           &trans        &trans       &kp ENTER       &kp BACKSPACE                                                              &kp PIPE
-            >;
-
-            sensor-bindings = <&rsr_default>;
-        };
-
-        scroll_win {
-            display-name = "SCRL_W";
-            bindings = <
-&kp ESCAPE      &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &trans                           &trans  &trans    &mkp MB3  &trans    &trans
-&kp HOME        &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END            &out OUT_TOG  &trans  &mkp MB1  &trans    &mkp MB2  &trans
-&kp LEFT_SHIFT  &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans   &trans    &trans        &trans  &mkp MB1  &trans    &mkp MB2  &trans
-&trans          &trans                  &trans          &trans                   &trans   &trans    &trans        &trans                                &trans
-            >;
-
-            sensor-bindings = <&rsr_default>;
-        };
-
-        function_win {
-            display-name = "FN_W";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans            &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans     &trans     &trans
+&trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &mkp MCLK  &mkp LCLK  &mkp RCLK
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &mkp MB4   &mkp MB5   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                &trans
             >;
+
+            sensor-bindings = <&rsr_default>;
         };
 
-        ble_win {
-            display-name = "BLE_W";
-            bindings = <
-&kp F1  &kp F2        &kp F3        &kp F4        &kp F5                          &BT0         &BT1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&kp F6  &kp F7        &kp F8        &kp F9        &trans            &out OUT_TOG  &trans       &trans  &trans        &trans        &studio_unlock
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans    &bootloader   &trans       &trans  &trans        &trans        &bt BT_CLR
-&trans  &trans        &trans        &trans        &trans  &trans    &trans        &bootloader                                      &bt BT_CLR_ALL
-            >;
-        };
-
-        layer_6 {
+        scroll_2 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans
+            >;
+
+            sensor-bindings = <&rsr_default>;
+        };
+
+        num_3 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                             &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &none       &kp SLASH
+&trans  &trans  &trans  &trans  &trans            &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &none       &kp ASTRK
+&trans  &trans  &trans  &trans  &trans  &trans    &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_DOT  &kp MINUS
+&trans  &trans  &trans  &trans  &trans  &trans    &trans           &kp KP_N0                                                      &kp PLUS
+            >;
+
+            sensor-bindings = <&rsr_default>;
+        };
+
+        symbol_4 {
+            bindings = <
+&kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT                    &kp CARET      &kp AMPERSAND  &kp ASTERISK       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&kp GRAVE        &trans       &trans    &trans      &trans                 &trans  &kp BACKSLASH  &kp SEMICOLON  &kp SQT            &kp LEFT_BRACKET      &kp RIGHT_BRACKET
+&kp TILDE        &trans       &trans    &trans      &trans       &trans    &trans  &kp PIPE       &kp COLON      &kp DOUBLE_QUOTES  &kp LEFT_BRACE        &kp RIGHT_BRACE
+&trans           &trans       &trans    &trans      &trans       &trans    &trans  &trans                                                                 &trans
+            >;
+        };
+
+        fn_5 {
+            bindings = <
+&kp Q      &trans          &kp UP_ARROW    &trans     &trans                    &kp F7  &kp F8  &kp F9  &kp F12  &trans
+&kp LC(A)  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &trans            &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans
+&trans     &trans          &trans          &trans     &trans  &trans    &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
+&trans     &trans          &trans          &trans     &trans  &trans    &trans  &trans                           &trans
+            >;
+        };
+
+        navi_6 {
+            bindings = <
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR  &bt BT_CLR_ALL                        &kp INS     &kp HOME  &kp PAGE_UP    &trans  &studio_unlock
+&trans        &trans        &trans        &trans      &trans                    &trans      &kp DELETE  &kp END   &kp PAGE_DOWN  &trans  &trans
+&trans        &trans        &trans        &trans      &trans          &trans    &kp ESCAPE  &trans      &trans    &trans         &trans  &trans
+&trans        &trans        &trans        &trans      &trans          &trans    &trans      &trans                                       &trans
             >;
         };
     };
